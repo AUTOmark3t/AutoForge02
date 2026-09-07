@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AutoForge — Piese auto online</title>
+  <meta name="description" content="AutoForge — magazin online de piese și accesorii auto în România.">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="top-contact">
+        <a href="tel:+40745942521">☎ +40 745 942 521</a>
+        <a href="mailto:benedekzoltan916@gmail.com">✉ benedekzoltan916@gmail.com</a>
+      </div>
+      <div>🚚 Livrare rapidă în România</div>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="wrap header-row">
+      <a class="logo" href="/"><span class="gear">⚙</span><span>Auto<span>Forge</span></span><small>AUTO PARTS</small></a>
+      <div class="search">
+        <input id="search" type="search" placeholder="Caută produse, categorie sau cod...">
+        <button id="searchBtn" aria-label="Caută">⌕</button>
+      </div>
+      <div class="header-badges">
+        <div><b>🛡 Produse de calitate</b><small>Selecție verificată</small></div>
+        <div><b>↩ Retur simplu</b><small>Conform condițiilor de retur</small></div>
+        <button class="cart-button" id="openCart">🛒 <span id="cartCount">0</span></button>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <div class="wrap nav-inner">
+        <a href="#products" class="nav-main">☰ Categorii</a>
+        <a href="/">Acasă</a>
+        <a href="#about">Despre noi</a>
+        <a href="#delivery">Livrare</a>
+        <a href="#returns">Retur</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img src="/images/hero-autoforge.jpg" alt="Piese auto AutoForge">
+      <div class="hero-shade"></div>
+      <div class="wrap hero-content">
+        <p class="eyebrow">PIESE AUTO PENTRU DRUMUL TĂU</p>
+        <h1>Performanță<br>în fiecare kilometru</h1>
+        <p>Găsește rapid piesele potrivite pentru mașina ta.<br>Calitate, prețuri corecte și plată securizată.</p>
+        <a href="#products" class="cta">Vezi produsele →</a>
+        <div class="hero-points">
+          <span>🚚 Livrare rapidă</span>
+          <span>🛡 Plată securizată prin Stripe</span>
+          <span>📦 Comenzi urmărite</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="categories wrap" id="categories"></section>
+
+    <section class="products-section wrap" id="products">
+      <div class="section-title">
+        <div>
+          <p class="eyebrow">MAGAZIN</p>
+          <h2>Produse populare</h2>
+        </div>
+        <select id="categoryFilter"><option value="">Toate categoriile</option></select>
+      </div>
+      <div id="productsGrid" class="products-grid">
+        <p>Se încarcă produsele...</p>
+      </div>
+    </section>
+
+    <section class="info-grid wrap">
+      <article id="about">
+        <h3>Despre AutoForge</h3>
+        <p>Magazin online dedicat pieselor și accesoriilor auto. Produsele din această versiune demo pot fi administrate din baza de date PostgreSQL.</p>
+      </article>
+      <article id="delivery">
+        <h3>Livrare</h3>
+        <p>Costul și termenul final de livrare se confirmă înainte de expediere, în funcție de produs și disponibilitate.</p>
+      </article>
+      <article id="returns">
+        <h3>Retur</h3>
+        <p>Condițiile complete de retur trebuie adaptate formei tale juridice și politicii comerciale înainte de lansarea publică.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="wrap footer-grid">
+      <div>
+        <div class="logo footer-logo"><span class="gear">⚙</span><span>Auto<span>Forge</span></span></div>
+        <p>Piese auto online • România</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="tel:+40745942521">+40 745 942 521</a>
+        <a href="mailto:benedekzoltan916@gmail.com">benedekzoltan916@gmail.com</a>
+      </div>
+      <div>
+        <h4>Informații</h4>
+        <a href="/termeni.html">Termeni și condiții</a>
+        <a href="/confidentialitate.html">Confidențialitate</a>
+        <a href="#delivery">Livrare</a>
+        <a href="#returns">Retur</a>
+      </div>
+      <div>
+        <h4>Plată</h4>
+        <p>Stripe • Visa • Mastercard</p>
+        <small>Detaliile PFA/CUI se completează după emiterea oficială.</small>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 AutoForge. Toate drepturile rezervate.</div>
+  </footer>
+
+  <div class="drawer-overlay" id="overlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Coș">
+    <div class="cart-head">
+      <h3>Coșul tău</h3>
+      <button id="closeCart">✕</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-footer">
+      <label>Telefon pentru comandă
+        <input id="checkoutPhone" value="+40 " autocomplete="tel">
+      </label>
+      <div class="total"><span>Total</span><strong id="cartTotal">0,00 RON</strong></div>
+      <button class="checkout" id="checkoutBtn">Plătește cu Stripe</button>
+      <small id="checkoutMsg"></small>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast"></div>
+  <script src="/app.js"></script>
+</body>
+</html>

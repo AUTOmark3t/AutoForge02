@@ -1,0 +1,10 @@
+<!doctype html><html lang="ro"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Plată — AutoForge</title><link rel="stylesheet" href="/styles.css"></head>
+<body><main class="legal"><a class="logo" href="/"><span class="gear">⚙</span><span>Auto<span>Forge</span></span></a><h1>Mulțumim pentru comandă!</h1><p id="status">Verificăm plata...</p><a class="cta" href="/">Înapoi la magazin</a></main>
+<script>
+const id=new URLSearchParams(location.search).get("session_id");
+if(!id){document.querySelector("#status").textContent="Lipsește identificatorul plății."}
+else fetch("/api/order-status?session_id="+encodeURIComponent(id)).then(r=>r.json()).then(x=>{
+ document.querySelector("#status").textContent=x.status==="paid" ? `Plata a fost confirmată. Comanda #${x.id}.` : `Comanda #${x.id} este înregistrată. Status: ${x.status}.`;
+ if(x.status==="paid") localStorage.removeItem("autoforge-cart");
+}).catch(()=>document.querySelector("#status").textContent="Comanda a fost înregistrată. Confirmarea poate dura câteva secunde.");
+</script></body></html>
