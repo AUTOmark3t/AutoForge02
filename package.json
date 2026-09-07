@@ -1,0 +1,18 @@
+{
+  "name": "autoforge02",
+  "version": "1.0.0",
+  "description": "AutoForge02 Application",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
+
